@@ -320,10 +320,11 @@ section.hero {
     text-decoration: underline;
 }
 
-
+.carrossel-wrapper{
+    position: relative;
+}
 
 .produtos-container {
-    position: relative;
     overflow: hidden;
 }
 
@@ -331,7 +332,6 @@ section.hero {
     display: flex;
     transition: transform 0.5s ease;
     gap: 20px;
-    width: 83%;
     padding: 10px;
 }
 
@@ -339,7 +339,7 @@ section.hero {
 
 .carousel-btn {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     background-color: #fff;
     color: #333;
     width: 40px;
@@ -358,10 +358,11 @@ section.hero {
 .carousel-btn.left{
     left: -20px;
     top: 40%;
+
 }
 .carousel-btn.right{
     right: -20px;
-    top: 40%;
+  top: 40%;
 }
 
 .carousel-btn:hover {
