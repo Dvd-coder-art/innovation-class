@@ -1308,9 +1308,86 @@ footer {
     }
 
 
+    .infos-lancamentos{
+        padding: 0px 15px;
+    }
     
+    .carrossel-wrapper>button{
+        display:none;
+    }
+
+    .carousel-btn {
+        position: relative;
+        display: none;
+    }
+
+    .carousel-btn.left,
+    .carousel-btn.right {
+        display: none;
+    }
+
+    .produtos-container {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-left: 10px
+    }
+
+    
+    
+    .produtos-track {
+        display: flex;
+        justify-content: space-between;  /* Distribui os itens com espaço entre eles */
+        scroll-snap-type: x mandatory;
+        padding-left: 10px;
+         
+    }
+
+    
+    .card-new{
+        position: fixed;
+        margin-right:30% ;
+    }
+    
+    .box-produtos {
+        align-items: center;
+        text-align: left;
+        scroll-snap-align: start;
+        flex: 0 0 0;
+        
+    }
+
+    .box-produtos>img{
+        max-width: 90%;
+    }
+
+    .dots>button{
+        background:none;
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
     
 
+    .dot {
+        height: 5px;
+        width: 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+      
+    .dot.active {
+        background-color: #3A86FF;
+    }
     
     
 }
