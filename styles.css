@@ -626,7 +626,7 @@ section.avanti-contact{
     margin-top: 15px;
     border-radius: 5px ;
     gap: 15px;
-    padding: 50px;
+    padding: 50px 110px ;
     background-color: #DEDEDE;
     display: flex;
 }
@@ -649,7 +649,7 @@ section.avanti-contact{
     border: none;
     padding: 20px;
     border-radius:7px ; 
-    width: 235px;
+    width: 250px;
 }
 
 .inputs>input::placeholder{
@@ -675,7 +675,7 @@ section.avanti-contact{
 /* Footer */
 footer {
     margin-top: 20px ;
-    background-color: #c5c5c5;
+    background-color: var(--light);
     color: #000;
     padding-top: 60px;
 }
@@ -691,6 +691,68 @@ footer {
     margin-bottom: 20px;
     font-size: 15px;
 }
+
+.footer-content>hr{
+    display: none;
+}
+
+    
+
+.top-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20px;
+        
+}
+
+.top-title>h4{
+        font-size: 20px;
+    
+}
+
+.redes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    
+
+
+    .footer-column-institucional{
+        margin-left: 20px;
+        padding: 10px;
+    }
+
+   
+
+    .footer-column-ajuda{
+        margin-left: 20px ;
+        padding: 10px;
+    }
+    
+    .footer-column-atendimento{
+        margin-left: 20px ;
+        padding: 10px;
+    }
+    
+
+    .top-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20px;
+        
+    }
+
+    .top-title>h4{
+        font-size: 20px;
+    }
+    
+    .top-title>button{
+        display: none;
+    }
 
 .footer-links {
     list-style: none;
@@ -752,6 +814,10 @@ footer {
     justify-content: center;
     margin-top: 55px ;
     margin-bottom: 55px ;
+}
+.footer-banks-mobile{
+    display: none;
+    
 }
 
 
@@ -1043,7 +1109,7 @@ footer {
     
     .forms{
         margin-top: 15px;
-        background-color: #F5F5F5;
+        background-color: var(--light);
         display: flex;
        
         flex-direction: column;
@@ -1089,6 +1155,146 @@ footer {
     .submits>p>span{
         text-decoration: underline;
     }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+    
+    .footer-column {
+        width: 100%;
+    }
+    
+    .footer-column h4 {
+        font-size: 18px;
+        margin: 0;
+    }
+    
+    .footer-content> hr {
+        display: flex;
+        border: none;
+        height: 1px;
+        opacity: 20%;
+        background-color: #000;
+        
+    }
+
+    
+    
+    .top-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20px;
+    }
+    
+    .top-title > h4 {
+        font-size: 20px;
+    }
+    
+    .top-title > button {
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .top-title > button.girar {
+        transform: rotate(180deg);
+    }
+    
+    .footer-links {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer-links.aberto {
+        max-height: 500px;
+        opacity: 1;
+    }
+    
+    .footer-links li {
+        font-size: 13px;
+        padding-top:10px ;
+        margin-bottom: 10px;
+        line-height: 1.9;
+    }
+    
+    .footer-links li > span {
+        font-weight: 700;
+    }
+    
+    .footer-links a {
+        color: #000;
+        text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+    
+    .social-links {
+        margin-top: 15px;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .social-links a {
+        margin-right: 10px;
+        color: var(--primary);
+        font-size: 18px;
+    }
+    
+    .footer-bottom {
+        background-color: var(--background);
+        text-align: center;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .footer-bottom > p {
+        width: 1074px;
+        font-size: 10px;
+    }
+    
+    .footer-banks {
+        display: flex;
+        justify-content: center;
+        margin-top: 55px;
+        margin-bottom: 55px;
+    }
+    
+    .footer-banks-mobile {
+        display: none;
+    }
+    
+    
+    .footer-banks{
+        display: none;
+        
+    }
+
+    .footer-banks-mobile{
+        display: flex;
+        justify-content: center;
+        margin-top: 55px ;
+        margin-bottom: 55px ;
+    }
+
+
+    
+    
+
     
     
 }

@@ -64,3 +64,44 @@ function configurarCarrossel(carrosselID) {
 // Configura os dois carrosséis
 configurarCarrossel("carrossel1");
 configurarCarrossel("carrossel2");
+
+
+//Exibir function
+
+listLink = document.getElementById('list-link') 
+listCall = document.getElementById("list-call")
+listHelp = document.getElementById("list-help")
+
+function exibir(type){
+    
+    let cards = [listLink, listCall, listHelp];
+    let botoes = document.querySelectorAll(".top-title button")
+    let cardSelecionado
+    let botaoSelecionado
+    
+    if (type === 'link'){
+        cardSelecionado = listLink;
+        botaoSelecionado = document.querySelector(".footer-column-institucional .top-title button")
+    } 
+    if (type === 'call'){
+        cardSelecionado = listCall;
+        botaoSelecionado = document.querySelector(".footer-column-atendimento .top-title button")
+    } 
+    if (type === 'help') {
+        cardSelecionado = listHelp;
+        botaoSelecionado = document.querySelector(".footer-column-ajuda .top-title button")
+    }
+    
+    if (cardSelecionado.classList.contains('aberto')) {
+        cardSelecionado.classList.remove('aberto');
+        botaoSelecionado.classList.remove("girar");
+        return;
+      }
+
+      cards.forEach(card => card.classList.remove('aberto'));
+      botoes.forEach(botao => botao.classList.remove('girar'));
+
+      // Abre o selecionado
+      cardSelecionado.classList.add('aberto');
+      botaoSelecionado.classList.add('girar');
+}
