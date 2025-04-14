@@ -16,11 +16,18 @@
 }
 
 /* Base */
+html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
 body {
     background-color: var(--background);
     color: var(--dark);
     line-height: 1.4;
-    width: 100vw;
+    
 }
 
 section{
@@ -511,7 +518,7 @@ section.hero {
     display: flex;
 
     align-items: center;
-    background-color: #C2C2C2;
+    background-color: #DEDEDE;
 }
 
 
@@ -529,7 +536,7 @@ section.hero {
 
 section.coffe-loc{
     width: 100%;
-    background-color: #C2C2C2;
+    background-color: #DEDEDE;
     padding: 30px;
 }
 
@@ -804,9 +811,13 @@ footer {
     align-items: center;
     gap: 30px;
 }
-.footer-bottom>p {
+.text-bottom>p {
     width:1074px;
     font-size: 10px;
+}
+
+.text-bottom-mobile{
+    display: none;
 }
 
 .footer-banks{
@@ -865,6 +876,13 @@ footer {
         display: none;
     }
 
+    .menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 15px;
+    }
+
     .search-mobile{
         display: flex;
         align-items: center;
@@ -872,7 +890,7 @@ footer {
         padding: 10px;
         border-radius: 7px;
         height: 40px;
-        width: 550px;
+        width: 100%;
     }
 
     .search-mobile input {
@@ -960,21 +978,21 @@ footer {
     section.coffe{
         display: flex;
     }
-
-
+    
+    
     .container-coffe{
+        margin-top: 50px;
+        justify-content: center;
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        width: 390px;
-        margin-bottom: 100px ;
+        margin-bottom: 40px ;
     }
     
     .image-coffe{
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #C2C2C2;
+        
     }
 
     .image-coffe>img{
@@ -997,7 +1015,7 @@ footer {
 
     section.coffe-loc{
         width: 100%;
-        background-color: #C2C2C2;
+        
         padding: 30px;
     }
     
@@ -1051,6 +1069,7 @@ footer {
         display: flex;
         flex-direction: column;
         max-height: 100%;
+        margin-bottom: 50px;
     }
 
     section.avanti-contact{
@@ -1251,19 +1270,16 @@ footer {
         font-size: 18px;
     }
     
-    .footer-bottom {
-        background-color: var(--background);
-        text-align: center;
-        padding: 40px;
+    .text-bottom{
+        display: none;
+    }
+
+    .text-bottom-mobile{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
     }
     
-    .footer-bottom > p {
-        width: 1074px;
+    .text-bottom > p {
+        width: auto;
         font-size: 10px;
     }
     
