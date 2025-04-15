@@ -116,6 +116,7 @@ header > p > span {
     font-weight: 200;
     font-style: italic;
     font-weight: 300;
+    overflow: hidden;
 }
 
 .span1 {
@@ -219,16 +220,121 @@ header > p > span {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-left: 10px ;
+    
     text-align: center;
 }
 
-.categorias>p{
-    margin-top: 2px;
-    font-weight: 760;
-    font-size: 13px;
+.btn-categorias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    background:none;
+    gap: 7px;
+    border: none;
+    cursor: pointer;
 }
+
+.btn-categorias:hover{
+    color: var(--primary);
+}
+
+
+.btn-categorias>p{
+    
+    font-weight: 760;
+    font-size: 12px;
+}
+
+
+.categorias-hover {
+    margin-left:10% ;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 80%;
+    background: #7e3f3f;
+    display: none;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    gap: 20px;
+    display: flex;
+  }
+  
+  .menu-coluna {
+    width: 200px;
+  }
+  
+  .menu-coluna h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  
+  .menu-coluna ul li {
+    list-style: none;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  
+  .subcategorias {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .subcategorias .coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .subcategorias .coluna h4 {
+    color: var(--primary);
+  }
+  
+  .banner-categorias {
+    position: relative;
+    width: 250px;
+  }
+  
+  .banner-categorias img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  
+  .texto-banner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+  }
+  
+  .texto-banner p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .texto-banner span {
+    color: #FFC107;
+  }
+  
+  .texto-banner button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .texto-banner button:hover {
+    background: #012e7c;
+  }
+  
+
 
 .nav-links>li{
     font-size: 13px;
@@ -268,6 +374,10 @@ section.hero {
     align-items: center;
     justify-content: space-around;
     height: 100%;
+}
+
+.hero-text-mobile{
+    display: none;
 }
 
 .image-hero>img{
@@ -490,6 +600,7 @@ section.hero {
 }
 
 .dots>button{
+    background:none;
     border: none;
 }
   
@@ -1308,6 +1419,8 @@ footer {
     }
 
 
+    
+
     .infos-lancamentos{
         padding: 0px 15px;
     }
@@ -1317,7 +1430,7 @@ footer {
     }
 
     .carousel-btn {
-        position: relative;
+       
         display: none;
     }
 
@@ -1328,41 +1441,68 @@ footer {
 
     .produtos-container {
         display: flex;
-        width: 100%;
-        box-sizing: border-box;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        padding-left: 10px
-    }
+        -webkit-overflow-scrolling: touch; /* scroll suave em iOS */
+        scroll-behavior: smooth; /* scroll suave nativo */
+        
+      }
 
     
     
     .produtos-track {
+        position: relative;
         display: flex;
-        justify-content: space-between;  /* Distribui os itens com espaço entre eles */
+        gap: 10px;
         scroll-snap-type: x mandatory;
-        padding-left: 10px;
          
     }
 
     
     .card-new{
-        position: fixed;
+        position: absolute;
         margin-right:30% ;
+    }
+
+    .card-new>p{
+        text-align: center;
+        padding: 5px;
     }
     
     .box-produtos {
-        align-items: center;
+        
         text-align: left;
-        scroll-snap-align: start;
-        flex: 0 0 0;
+        scroll-snap-align: center;
+        flex: 0 0 180px;
         
     }
 
+
+
     .box-produtos>img{
-        max-width: 90%;
+        max-width: 158px;
     }
 
+    .cupon{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cupon>p{
+        
+        margin-top:0 ;
+        font-size: 11px;
+        text-decoration: none;
+        padding: 1px 10px;
+    }
+    
+    .preco{
+        margin-top:10px ;
+    }
+    
     .dots>button{
         background:none;
     }

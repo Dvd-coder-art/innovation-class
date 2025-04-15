@@ -1,74 +1,82 @@
 // Função para configurar um carrossel
 function configurarCarrossel(carrosselID) {
-    const bolinhas = document.querySelectorAll(`#${carrosselID} .dot`);
-    const trilha = document.querySelector(`#${carrosselID} .produtos-track`);
-    const itens = document.querySelectorAll(`#${carrosselID} .box-produtos`);
-    const botaoAnterior = document.querySelector(`#${carrosselID} .carousel-btn.left`);
-    const botaoProximo = document.querySelector(`#${carrosselID} .carousel-btn.right`);
-  
-    const itensPorTela = 5;
-    const totalDeItens = itens.length;
-    const maxIndice = Math.ceil(totalDeItens / itensPorTela) - 1;
-    let indiceAtual = 0;
-  
-    // Função para mover os itens e atualizar as bolinhas
-    function atualizarCarrossel(indice) {
-      // Atualiza bolinhas
-      bolinhas.forEach(b => b.classList.remove("active"));
-      if (bolinhas[indice]) {
-        bolinhas[indice].classList.add("active");
-      }
-  
-      // Move os itens
-      const larguraItem = itens[0].offsetWidth + 20; // largura + espaçamento
+  const bolinhas = document.querySelectorAll(`#${carrosselID} .dot`);
+  const trilha = document.querySelector(`#${carrosselID} .produtos-track`);
+  const itens = document.querySelectorAll(`#${carrosselID} .box-produtos`);
+  const container = document.querySelector(`#${carrosselID} .produtos-container`);
+  const botaoAnterior = document.querySelector(`#${carrosselID} .carousel-btn.left`);
+  const botaoProximo = document.querySelector(`#${carrosselID} .carousel-btn.right`);
+
+  const itensPorTela = 5;
+  const totalDeItens = itens.length;
+  const maxIndice = Math.ceil(totalDeItens / itensPorTela) - 1;
+  let indiceAtual = 0;
+
+  function atualizarDots(indice) {
+    bolinhas.forEach(b => b.classList.remove("active"));
+    if (bolinhas[indice]) {
+      bolinhas[indice].classList.add("active");
+    }
+  }
+
+  function atualizarCarrossel(indice) {
+    const isMobile = window.innerWidth <= 576;
+
+    atualizarDots(indice);
+
+    if (!isMobile) {
+      const larguraItem = itens[0].offsetWidth + 20;
       const deslocamento = larguraItem * itensPorTela * indice;
       trilha.style.transform = `translateX(-${deslocamento}px)`;
-  
-      // Controla exibição do botão "próximo"
-      if (window.innerWidth > 768) {
-        botaoProximo.style.display = indice >= maxIndice ? 'none' : 'flex';
-      } else {
-        botaoProximo.style.display = 'none';
-      }
+      botaoProximo.style.display = indice >= maxIndice ? 'none' : 'flex';
+    } else {
+      trilha.style.transform = 'none';
+      botaoProximo.style.display = 'none';
     }
-  
-    // Evento de clique nas bolinhas
-    bolinhas.forEach((b, i) => {
-      b.addEventListener("click", () => {
-        indiceAtual = i;
-        atualizarCarrossel(indiceAtual);
-      });
-    });
-  
-    // Evento de clique no botão "anterior"
-    botaoAnterior.addEventListener("click", () => {
-      if (indiceAtual > 0) {
-        indiceAtual--;
-        atualizarCarrossel(indiceAtual);
-      }
-    });
-  
-    // Evento de clique no botão "próximo"
-    botaoProximo.addEventListener("click", () => {
-      if (indiceAtual < maxIndice) {
-        indiceAtual++;
-        atualizarCarrossel(indiceAtual);
-      }
-    });
-  
-    // Atualiza carrossel ao redimensionar a janela
-    window.addEventListener("resize", () => {
+  }
+
+  bolinhas.forEach((b, i) => {
+    b.addEventListener("click", () => {
+      indiceAtual = i;
       atualizarCarrossel(indiceAtual);
     });
-  
-    // Inicia o carrossel
-    atualizarCarrossel(0);
-  }
-  
-  // Configura os carrosséis
-  configurarCarrossel("carrossel1");
-  configurarCarrossel("carrossel2");
-  
+  });
+
+  botaoAnterior.addEventListener("click", () => {
+    if (indiceAtual > 0) {
+      indiceAtual--;
+      atualizarCarrossel(indiceAtual);
+    }
+  });
+
+  botaoProximo.addEventListener("click", () => {
+    if (indiceAtual < maxIndice) {
+      indiceAtual++;
+      atualizarCarrossel(indiceAtual);
+    }
+  });
+
+  // Evento de scroll no mobile
+  container.addEventListener("scroll", () => {
+    if (window.innerWidth <= 576) {
+      const larguraItem = itens[0].offsetWidth + 20;
+      const itensPorPagina = Math.floor(container.offsetWidth / larguraItem);
+      const indice = Math.round(container.scrollLeft / (larguraItem * itensPorPagina));
+      atualizarDots(indice);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    atualizarCarrossel(indiceAtual);
+  });
+
+  atualizarCarrossel(0);
+}
+
+// Configura os carrosséis
+configurarCarrossel("carrossel1");
+configurarCarrossel("carrossel2");
+
 
   
 
@@ -132,3 +140,15 @@ function exibir(type){
       cardSelecionado.classList.add('aberto');
       botaoSelecionado.classList.add('girar');
 }
+
+
+const btnCategorias = document.querySelector(".btn-categorias");
+const categoriasHover = document.querySelector(".categorias-hover");
+
+btnCategorias.addEventListener("mouseover", () => {
+  categoriasHover.style.display = "flex";
+});
+
+categoriasHover.addEventListener("mouseleave", () => {
+  categoriasHover.style.display = "none";
+});
