@@ -20,7 +20,7 @@ function configurarCarrossel(carrosselID) {
   }
 
   function atualizarCarrossel(indice) {
-    const isMobile = window.innerWidth <= 576;
+    const isMobile = window.innerWidth <=1200;
 
     atualizarDots(indice);
 
@@ -58,7 +58,7 @@ function configurarCarrossel(carrosselID) {
 
   // Evento de scroll no mobile
   container.addEventListener("scroll", () => {
-    if (window.innerWidth <= 576) {
+    if (window.innerWidth <= 1200) {
       const larguraItem = itens[0].offsetWidth + 20;
       const itensPorPagina = Math.floor(container.offsetWidth / larguraItem);
       const indice = Math.round(container.scrollLeft / (larguraItem * itensPorPagina));
@@ -147,13 +147,13 @@ const btnCategorias = document.querySelector(".btn-categorias");
 const categoriasHover = document.querySelector(".categorias-hover");
 
 btnCategorias.addEventListener("mouseover", () => {
-  categoriasHover.style.opacity = "100%";
-  
+  categoriasHover.style.display = "flex";
+  console.log("Entrou");
 });
 
 categoriasHover.addEventListener("mouseleave", () => {
-  categoriasHover.style.opacity = "0%";
-  categoriasHover.style.transform = "translateY(0)";
+  categoriasHover.style.display = "none";
+  console.log("saiu");
   
 });
 
@@ -165,6 +165,7 @@ const subCategorias = document.querySelector(".subcategorias");
 let subAberto = false;
 
 // Hover
+
 itemCategorias.forEach(item => {
   item.addEventListener("mouseover", () => {
     if (!subAberto) {
@@ -190,6 +191,8 @@ itemCategorias.forEach(item => {
   });
 });
 
+
+
 const departamentoLinks = document.querySelectorAll(".nav-links li a");
 const menuHover = document.querySelector(".hover-departamento");
 
@@ -204,3 +207,25 @@ menuHover.addEventListener("mouseleave", () => {
   menuHover.style.display = "none";
   
 });
+
+
+let menuMobile = document.querySelector(".menu-mobile");
+let exibirMenu = document.querySelector('.exibir-menu')
+let icone = document.querySelector('.exibir-menu i')
+
+
+let aberto = true
+
+exibirMenu.addEventListener("click", () => {
+  aberto = !aberto;
+  if(aberto) {
+    menuMobile.style.transform= "translateX(0)";
+    exibirMenu.style.transform= "translateX(800%)";
+    icone.classList.replace("fa-bars", "fa-xmark");
+
+  }else{
+    menuMobile.style.transform = "translateX(-300px)";
+    exibirMenu.style.transform= "translateX(0)";
+    icone.classList.replace("fa-xmark", "fa-bars")
+  }
+})
