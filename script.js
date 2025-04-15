@@ -142,13 +142,65 @@ function exibir(type){
 }
 
 
+
 const btnCategorias = document.querySelector(".btn-categorias");
 const categoriasHover = document.querySelector(".categorias-hover");
 
 btnCategorias.addEventListener("mouseover", () => {
-  categoriasHover.style.display = "flex";
+  categoriasHover.style.opacity = "100%";
+  
 });
 
 categoriasHover.addEventListener("mouseleave", () => {
-  categoriasHover.style.display = "none";
+  categoriasHover.style.opacity = "0%";
+  categoriasHover.style.transform = "translateY(0)";
+  
+});
+
+
+const itemCategorias = document.querySelectorAll(".menu-coluna li");
+const subCategorias = document.querySelector(".subcategorias");
+
+
+let subAberto = false;
+
+// Hover
+itemCategorias.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    if (!subAberto) {
+      subCategorias.style.opacity = "1";
+    }
+  });
+
+  item.addEventListener("mouseout", () => {
+    if (!subAberto) {
+      subCategorias.style.opacity = "0";
+    }
+  });
+
+  // Clique
+  item.addEventListener("click", () => {
+    subAberto = !subAberto;
+
+    if (subAberto) {
+      subCategorias.style.opacity = "1";
+    } else {
+      subCategorias.style.opacity = "0";
+    }
+  });
+});
+
+const departamentoLinks = document.querySelectorAll(".nav-links li a");
+const menuHover = document.querySelector(".hover-departamento");
+
+departamentoLinks.forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    menuHover.style.display = "flex";
+    
+  });
+});
+
+menuHover.addEventListener("mouseleave", () => {
+  menuHover.style.display = "none";
+  
 });
