@@ -233,46 +233,120 @@ exibirMenu.addEventListener("click", () => {
 
 
 
-let listaPalavras = []
 
-async function pegarDados() {
-  const banco = await fetch("bd.json")
-  const dados = await banco.json();
-  listaPalavras = dados.palavras
-  console.log(listaPalavras);
-  
-}
 
-pegarDados();
 
-console.log(listaPalavras)
 // for (let i = 0; i<listaPalavras.length(); i++) {
   
 //   console.log(listaPalavras[i]);
 // }
+const suggestions = document.getElementById("suggestions")
+const input = document.getElementById("input")
+const inputMobile = document.getElementById("input-mobile")
+const containerBusca = document.querySelectorAll(".container h1,h2,h3,p")
 
-function pesquisar(){
-  // const inputDesktop = document.getElementById("input").value;
-  const mobileResult = document.getElementById("mobile-result")
-  const inputMobile = document.getElementById("input").value.toLowerCase().trim()
-  const paragrafo = document.createElement("p")
+
+input.addEventListener("input", (e) => {
+  const valor = e.target.value.toLowerCase()
   
-  if (listaPalavras.includes(inputMobile)) {
-    paragrafo.innerText = inputMobile
-    mobileResult.style.display = "block"
+  suggestions.innerHTML = "";
+  suggestions.style.display = "none";
 
-    mobileResult.appendChild(paragrafo)
-  }else{
-    console.log("nao achei")
-  }
+  if(valor.trim() === "") return;
+
+  const palavrasExibidas = new Set();
+
+  containerBusca.forEach((section,index)=> {
+    const texto = section.textContent.toLowerCase()
     
     
- 
-  
-  // if(listaPalavras.includes(inputMobile)){
-  //   console.log("Possui no banco")
-  // }else{
-  //   console.log("nao encontrei")
-  // }
+    if(texto.indexOf(valor)> -1 && !palavrasExibidas.has(texto)) {
+      palavrasExibidas.add(texto);
 
+      if (!section.id) {
+        section.id = `paragrafo-${index}`
+      }
+
+      const link = document.createElement("a")
+      link.href = `#${section.id}`;
+
+      const suggestionExibir = section.textContent.length > 50 ? section.textContent.slice(0, 20) + "..." : section.textContent;
+
+      link.textContent = suggestionExibir;
+      suggestions.appendChild(link)
+      suggestions.style.display = "flex"
+    }
+  });
+});
+
+//mobile
+inputMobile.addEventListener("input", (e) => {
+  const valor = e.target.value.toLowerCase()
+
+  suggestions.innerHTML = "";
+  suggestions.style.display = "none";
+
+  if(valor.trim() === "") return;
+
+  const palavrasExibidas = new Set();
+
+  containerBusca.forEach((section,index)=> {
+    const texto = section.textContent.toLowerCase()
+    
+    
+    if(texto.indexOf(valor)> -1 && !palavrasExibidas.has(texto)) {
+      palavrasExibidas.add(texto);
+
+      if (!section.id) {
+        section.id = `paragrafo-${index}`
+      }
+
+      const link = document.createElement("a")
+      link.href = `#${section.id}`;
+
+      const suggestionExibir = section.textContent.length > 50 ? section.textContent.slice(0, 20) + "..." : section.textContent;
+
+      link.textContent = suggestionExibir;
+      suggestions.appendChild(link)
+      suggestions.style.display = "flex"
+    }
+  });
+});
+
+listaPalavras = []
+async function acessoJson() {
+  const banco = await fetch("bd.json");
+  const dados = await banco.json();
+
+  listaPalavras = dados.palavras;
+
+  
+  console.log(listaPalavras)
 }
+
+
+acessoJson();
+
+function buscarTopico(){
+
+  const valorInput = input.value.toLowerCase().trim()
+  
+  if (listaPalavras.includes(valorInput)) {
+    const destino = document.getElementById(valorInput)
+    if(destino){
+      const link = document.createElement("a")
+      link.href=`#${valorInput}`
+      link.textContent = valorInput
+      suggestions.style.display = "block"
+      suggestions.appendChild(link)
+
+    }else{
+      alert("Esse tópico não existe no conteúdo.");
+
+    }
+  } else {
+    alert("Essa palavra não está na lista de palavras permitidas.");
+  }
+  
+}
+

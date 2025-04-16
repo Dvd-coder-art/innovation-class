@@ -15,7 +15,7 @@
             <span>DESCONTO10</span>
         </p>
         <div class="container">
-    
+            
             <nav class="navbar">
                 <div class="categorias-mobile">
                     <button class="exibir-menu"><i class="fa-solid fa-bars"></i></button>
@@ -37,7 +37,7 @@
                     <img src="./img/logo.png" alt="avantiLogo" class="logo">
                     <div class="search">
                         <input type="text" placeholder="Digite aqui o que você procura" id="input">
-                        <button onclick="pesquisar()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button onclick="buscarTopico()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
     
@@ -58,9 +58,9 @@
     
                 <div class="search-mobile">
                     <input type="text" placeholder="Digite aqui o que você procura" id="input-mobile">
-                    <button onclick="pesquisar()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button onclick="buscarTopico()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div class="resultado-mobile" id="mobile-result">
+                <div class="resultado-mobile" id="suggestions">
                     
                 </div>
                 <div class="categorias">
@@ -186,8 +186,8 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <section class="hero" id="home">
+        <div class="container" >
             <div class="hero-content">
                 <div class="image-hero">
                     <img src="./img/heroImg.png" alt="">
@@ -206,14 +206,14 @@
         </div>
     </section>
 
-    <section id="carrossel1" class="lancamentos">
-        <div class="container">
+    <section id="carrossel1" class="lancamentos" >
+        <div class="container" id="lancamentoContainer">
             <div class="infos-lancamentos">
                 <p class="lancamento">Lançamentos</p>
                 <p class="saber-mais">Ver mais</p>
             </div>
             
-            <div class="carrossel-wrapper">
+            <div class="carrossel-wrapper" id="lançamentos">
                 <div class="produtos-container">
             
                     <div class="produtos-track">
@@ -471,7 +471,7 @@
     </section>
 
     <section id="sobre" class="coffe">
-        <div class="container">
+        <div class="container" id="coffe-about">
             <div class="container-coffe">
 
                 <div class="image-coffe">
@@ -488,7 +488,7 @@
     </section>
 
     <section id="localizacao"  class="coffe-loc">
-        <div class="container">
+        <div class="container" id="coffe-localizacao">
             <div class="container-coffe-loc">
                 <div class="localizacao">
                     <div class="loc 1">
@@ -758,13 +758,13 @@
     </section>
         
         
-    <section id="formulario" class="avanti-contact">
-        <div class="container">
+    <section  class="avanti-contact">
+        <div class="container" id="container-contato">
             <div class="container-contact">
                 <div class="contact-image">
                     <h3>Entre em contato conosco e verifique a disponibilidade para sua região!</h3>
                 </div>
-                <div class="contact-infos"> 
+                <div class="contact-infos" id="formulario"> 
                     <h3>Cadastre-se na nossa <span>newsletter</span></h3>  
                     <div class="forms">
                         <div class="inputs">
@@ -784,7 +784,7 @@
 
         <!-- Footer -->
     <footer id="contact">
-        <div class="container">
+        <div class="container" id="formulario-container">
             <div class="footer-content">
                 
                 
