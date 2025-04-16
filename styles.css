@@ -6,7 +6,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
+    scroll-margin-top: 15rem;
 }
+
+
 
 :root {
     --primary: #2878f8;
@@ -524,6 +528,26 @@ header > p > span {
 
 .nav-links a:hover {
     color: var(--primary);
+}
+
+.resultado-mobile{
+    display: none;
+    width:550px;
+    height: auto;
+    background-color: var(--background);
+    box-shadow: 0 10px 10px #0000003b;
+    top: 73px;
+    border-left: 2px solid rgba(160, 159, 159, 0.589);
+    border-right: 2px solid rgba(160, 159, 159, 0.589);
+    border-bottom: 2px solid rgba(160, 159, 159, 0.589);
+    margin-right: 43px ;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    
+}
+.resultado-mobile>p{
+    padding: 10px;
 }
 
 /* Hero Section */

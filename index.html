@@ -21,9 +21,10 @@
                     <button class="exibir-menu"><i class="fa-solid fa-bars"></i></button>
                     <div class="menu-mobile">
                         <ul>
-                            <li>Home</li>
-                            <li>Roupas</li>
-                            <li>Formulario</li>
+                            <li><a href="#carrossel1">Lançamentos</a></li>
+                            <li><a href="#sobre">Sobre</a></li>
+                            <li><a href="#localizacao">Localização</a></li>
+                            <li><a href="#formulario">Formulario</a></li>
                         </ul>
                     </div>
                     <img src="./img/logo.png" alt="avantiLogo" class="logo">
@@ -35,8 +36,8 @@
                 <div class="lado-esquerdo">
                     <img src="./img/logo.png" alt="avantiLogo" class="logo">
                     <div class="search">
-                        <input type="text" placeholder="Digite aqui o que você procura">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Digite aqui o que você procura" id="input">
+                        <button onclick="pesquisar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
     
@@ -56,8 +57,11 @@
             <nav class="menu">
     
                 <div class="search-mobile">
-                    <input type="text" placeholder="Digite aqui o que você procura">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Digite aqui o que você procura" id="input-mobile">
+                    <button onclick="pesquisar()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="resultado-mobile" id="mobile-result">
+                    
                 </div>
                 <div class="categorias">
                     <button class="btn-categorias">
@@ -466,7 +470,7 @@
         </div>
     </section>
 
-    <section class="coffe">
+    <section id="sobre" class="coffe">
         <div class="container">
             <div class="container-coffe">
 
@@ -483,7 +487,7 @@
         </div>
     </section>
 
-    <section class="coffe-loc">
+    <section id="localizacao"  class="coffe-loc">
         <div class="container">
             <div class="container-coffe-loc">
                 <div class="localizacao">
@@ -754,7 +758,7 @@
     </section>
         
         
-    <section class="avanti-contact">
+    <section id="formulario" class="avanti-contact">
         <div class="container">
             <div class="container-contact">
                 <div class="contact-image">

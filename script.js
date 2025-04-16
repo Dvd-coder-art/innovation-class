@@ -229,3 +229,50 @@ exibirMenu.addEventListener("click", () => {
     icone.classList.replace("fa-xmark", "fa-bars")
   }
 })
+
+
+
+
+let listaPalavras = []
+
+async function pegarDados() {
+  const banco = await fetch("bd.json")
+  const dados = await banco.json();
+  listaPalavras = dados.palavras
+  console.log(listaPalavras);
+  
+}
+
+pegarDados();
+
+console.log(listaPalavras)
+// for (let i = 0; i<listaPalavras.length(); i++) {
+  
+//   console.log(listaPalavras[i]);
+// }
+
+function pesquisar(){
+  // const inputDesktop = document.getElementById("input").value;
+  const mobileResult = document.getElementById("mobile-result")
+  const inputMobile = document.getElementById("input").value.toLowerCase().trim()
+  const paragrafo = document.createElement("p")
+  
+  if (listaPalavras.includes(inputMobile)) {
+    paragrafo.innerText = inputMobile
+    mobileResult.style.display = "block"
+
+    mobileResult.appendChild(paragrafo)
+  }else{
+    console.log("nao achei")
+  }
+    
+    
+ 
+  
+  // if(listaPalavras.includes(inputMobile)){
+  //   console.log("Possui no banco")
+  // }else{
+  //   console.log("nao encontrei")
+  // }
+
+}
