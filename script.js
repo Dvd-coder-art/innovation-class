@@ -1,4 +1,4 @@
-// Função para configurar um carrossel
+
 function configurarCarrossel(carrosselID) {
   const bolinhas = document.querySelectorAll(`#${carrosselID} .dot`);
   const trilha = document.querySelector(`#${carrosselID} .produtos-track`);
@@ -56,7 +56,7 @@ function configurarCarrossel(carrosselID) {
     }
   });
 
-  // Evento de scroll no mobile
+ 
   container.addEventListener("scroll", () => {
     if (window.innerWidth <= 1200) {
       const larguraItem = itens[0].offsetWidth + 20;
@@ -73,7 +73,7 @@ function configurarCarrossel(carrosselID) {
   atualizarCarrossel(0);
 }
 
-// Configura os carrosséis
+
 configurarCarrossel("carrossel1");
 configurarCarrossel("carrossel2");
 
@@ -81,8 +81,7 @@ configurarCarrossel("carrossel2");
   
 
 
-  
-//Exibir function
+
 
 function atualizarCarrossel(indice) {
     const isMobile = window.innerWidth <= 576;
@@ -136,7 +135,7 @@ function exibir(type){
       cards.forEach(card => card.classList.remove('aberto'));
       botoes.forEach(botao => botao.classList.remove('girar'));
 
-      // Abre o selecionado
+      
       cardSelecionado.classList.add('aberto');
       botaoSelecionado.classList.add('girar');
 }
@@ -164,7 +163,7 @@ const subCategorias = document.querySelector(".subcategorias");
 
 let subAberto = false;
 
-// Hover
+
 
 itemCategorias.forEach(item => {
   item.addEventListener("mouseover", () => {
@@ -179,7 +178,7 @@ itemCategorias.forEach(item => {
     }
   });
 
-  // Clique
+  
   item.addEventListener("click", () => {
     subAberto = !subAberto;
 
@@ -236,10 +235,7 @@ exibirMenu.addEventListener("click", () => {
 
 
 
-// for (let i = 0; i<listaPalavras.length(); i++) {
-  
-//   console.log(listaPalavras[i]);
-// }
+
 const suggestions = document.getElementById("suggestions")
 const input = document.getElementById("input")
 const inputMobile = document.getElementById("input-mobile")
@@ -279,7 +275,7 @@ input.addEventListener("input", (e) => {
   });
 });
 
-//mobile
+
 inputMobile.addEventListener("input", (e) => {
   const valor = e.target.value.toLowerCase()
 

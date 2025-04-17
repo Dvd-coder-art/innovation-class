@@ -1,4 +1,4 @@
-/* Reset e Variáveis */
+
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
@@ -19,7 +19,7 @@
     --background: #fff;
 }
 
-/* Base */
+
 html{
   margin: 0;
   padding: 0;
@@ -93,14 +93,14 @@ h1 {
     color: transparent;
 }
 
-/* Header */
+
 header {
     display: flex;
     flex-direction: column;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 0; /* <- ESSENCIAL pra ele grudar no topo */
+    top: 0; 
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -293,7 +293,7 @@ header > p > span {
     background-color: var(--background);
     width: 73%;
     transition: opacity 0.3s ease;
-    top: 100%; /* para posicionar logo abaixo do menu principal */
+    top: 100%; 
     left: 210px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     z-index: 10;
@@ -536,7 +536,7 @@ header > p > span {
 }
 
 #suggestions{
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column;
     max-width:28.9%;
@@ -564,7 +564,7 @@ header > p > span {
     font-size: 13px;
 }
 
-/* Hero Section */
+
 
 section.hero {
     width: 100%;
@@ -1015,7 +1015,7 @@ section.avanti-contact{
 }
 
 
-/* Footer */
+
 footer {
     margin-top: 20px ;
     background-color: var(--light);
@@ -1217,7 +1217,7 @@ footer {
     .menu-mobile>ul{
         margin-top: 80px;
     }
-
+    
     .categorias{
         display: none;
     }
@@ -1665,8 +1665,8 @@ footer {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch; /* scroll suave em iOS */
-        scroll-behavior: smooth; /* scroll suave nativo */
+        -webkit-overflow-scrolling: touch; 
+        scroll-behavior: smooth; 
         
     }
 
@@ -1756,19 +1756,19 @@ footer {
 
 @media (max-width: 768px) {
     .search {
-        display: flex; /* Show search on tablets and up */
+        display: flex;  
     }
     
     .menu-toggle {
-        display: none; /* Hide toggle button */
+        display: none; 
     }
     
     .categorias {
-        display: flex; /* Show categories */
+        display: flex; 
     }
     
     .nav-links {
-        display: flex; /* Show nav links */
+        display: flex;
         flex-direction: row;
         position: static;
         background: transparent;
@@ -1975,13 +1975,15 @@ footer {
     .menu-mobile{
         border-left: 1px solid #000;
         position: absolute;
-        top: 24px;
+        top: 15%;
         left: 0;
         height: 100vh;
         transform: translateX(-300px);
         transition: 0.2s ease-in-out;
         background-color: var(--light);
         width: 200px;
+        box-shadow: 0px 15px 7px #0000004b;
+        
     }
  
 
@@ -1995,17 +1997,22 @@ footer {
     }
     .menu-mobile>ul>li{
         display: flex;
-        padding-left:5px ;
+        padding-left:10px ;
         text-align: justify;
         border-top: 1px solid #000;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 700;
         list-style: none;
         padding-top: 10px ;
         cursor: pointer;
     }
+    
+    .menu-mobile>ul>li>a{
+        text-decoration: none;
+        color: #000;
+    }
 
-    .menu-mobile>ul>li:hover{
+    .menu-mobile>ul>li>a:hover{
         color: var(--primary);
     }
 
@@ -2082,6 +2089,12 @@ footer {
 }
 
 
+@media (max-width: 493px){
+    .menu-mobile{
+        top: 23%;
+    }
+}
+
 @media (max-width: 992px) {
     .navbar {
         padding: 0 30px;
@@ -2124,6 +2137,7 @@ footer {
 
 
 }
+
 @media(max-width:1095px){
     .nav-links{
         display: none;
@@ -2134,6 +2148,12 @@ footer {
 
     .hover-departamento{
         display: none;
+    }
+
+    #suggestions {
+        width: 580px;
+        max-width: 100%;
+        margin-right: 8.8%;
     }
 
     .img-banner>img{
@@ -2327,3 +2347,97 @@ footer {
 }
 
 
+@media(max-width:1095px){
+    .nav-links{
+        display: none;
+    }
+    .categorias-hover{
+        left: 0;
+    }
+
+    .hover-departamento{
+        display: none;
+    }
+
+    #suggestions {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .img-banner>img{
+        width: 180px;
+
+    }
+    
+    .subcategorias .coluna p {
+        font-size: 9px;
+    }
+
+    .texto-banner{
+        top: 30px;
+    }
+    .texto-banner>button{
+        padding: 5px;
+    }
+    
+    section.hero {
+
+        height: 330px;
+        background-color: #e7e7ea;
+        
+    }
+    
+    .hero-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .image-hero{
+        position: relative;
+    }
+
+    .image-hero>img{
+        
+        max-height: 280px;
+        margin-left: -50%; 
+        
+    }
+
+    .hero-text h1{
+        font-size: 50px;
+    }
+    
+
+
+    .text-bottom>p {
+        width:100%;
+        font-size: 10px;
+    }
+
+    .loc-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .loc-image>img{
+        max-width: 80%;
+    
+    }
+
+    
+    
+
+}
+
+@media (max-width:650px){
+    #suggestions{
+        max-width: 80%;
+    }
+}
+@media (max-width:390px){
+    #suggestions{
+        max-width: 90%;
+    }
+}
